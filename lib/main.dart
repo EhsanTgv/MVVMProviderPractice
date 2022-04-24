@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_provider_practice/users_list/view_models/users_view_model.dart';
+import 'package:provider/provider.dart';
 import 'screen_home.dart';
 
 void main() {
@@ -10,12 +12,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => UsersViewModel()),
+      ],
+      child: MaterialApp(
+        title: 'MVVM',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          brightness: Brightness.dark,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: const HomeScreen(),
+        debugShowCheckedModeBanner: false,
       ),
-      home: const HomeScreen(),
     );
   }
 }
