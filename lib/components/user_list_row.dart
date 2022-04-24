@@ -5,12 +5,13 @@ import 'app_title.dart';
 
 class UserListRow extends StatelessWidget {
   final UserModel userModel;
-  final Function onTap;
+  final Function() onTap;
   const UserListRow({required this.userModel, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return InkWell(
+      onTap: onTap,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

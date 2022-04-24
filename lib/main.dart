@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_provider_practice/users_list/view_models/users_view_model.dart';
 import 'package:provider/provider.dart';
-import 'screen_home.dart';
+import 'users_list/views/screen_home.dart';
 
 void main() {
   runApp(const MyApp());
