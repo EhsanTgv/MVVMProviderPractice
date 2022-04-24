@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_provider_practice/components/app_error.dart';
 import 'package:mvvm_provider_practice/users_list/models/users_list_model.dart';
 import 'package:mvvm_provider_practice/users_list/view_models/users_view_model.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +43,7 @@ class HomeScreen extends StatelessWidget {
       return AppLoading();
     }
     if (userViewModel.userError != null) {
-      return Container();
+      return AppError(errorText: userViewModel.userError.toString());
     }
     return Expanded(
       child: ListView.separated(
