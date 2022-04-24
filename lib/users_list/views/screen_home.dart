@@ -17,6 +17,14 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Users'),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              openAddUser(context);
+            },
+            icon: const Icon(Icons.add),
+          )
+        ],
       ),
       body: Container(
         padding: const EdgeInsets.all(20.0),

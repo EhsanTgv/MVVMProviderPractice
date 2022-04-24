@@ -16,9 +16,9 @@ class UserListRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AppTitle(text: userModel.name),
+          AppTitle(text: userModel.name!),
           Text(
-            userModel.email,
+            userModel.email!,
             style: const TextStyle(color: Colors.black),
           ),
         ],
