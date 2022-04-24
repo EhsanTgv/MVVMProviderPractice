@@ -3,6 +3,9 @@ import 'package:mvvm_provider_practice/users_list/models/users_list_model.dart';
 import 'package:mvvm_provider_practice/users_list/view_models/users_view_model.dart';
 import 'package:provider/provider.dart';
 
+import 'components/app_loading.dart';
+import 'components/user_list_row.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -11,8 +14,11 @@ class HomeScreen extends StatelessWidget {
     UsersViewModel userViewModel = context.watch<UsersViewModel>();
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Users'),
+      ),
       body: Container(
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
             _ui(userViewModel),
@@ -24,7 +30,7 @@ class HomeScreen extends StatelessWidget {
 
   _ui(UsersViewModel userViewModel) {
     if (userViewModel.loading) {
-      return Container();
+      return AppLoading();
     }
     if (userViewModel.userError != null) {
       return Container();
@@ -33,13 +39,11 @@ class HomeScreen extends StatelessWidget {
       child: ListView.separated(
         itemBuilder: (context, index) {
           UserModel userModel = userViewModel.userListModel[index];
-          return Container(
-            child: Column(
-              children: [
-                Text(userModel.name),
-                Text(userModel.email),
-              ],
-            ),
+          return UserListRow(
+            userModel: userModel,
+            onTap: () async {
+              //
+            },
           );
         },
         separatorBuilder: (context, index) => const Divider(),

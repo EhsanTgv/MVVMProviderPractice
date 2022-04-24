@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         title: 'MVVM',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          brightness: Brightness.dark,
+          brightness: Brightness.light,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: const HomeScreen(),
